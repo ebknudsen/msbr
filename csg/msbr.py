@@ -28,7 +28,7 @@ class msbr(openmc.Model):
     zoneA_lattice.universes[5,6]=zoneIIA_stringer
 
     zoneI_IIB_boundary=self.stringer_boundary()
-    
+
     bound=openmc.ZCylinder(r=50*in2cm,boundary_type='vacuum')
 
     core=openmc.Cell(fill=zoneA_lattice,region=zoneI_IIB_boundary)
@@ -49,7 +49,7 @@ class msbr(openmc.Model):
     top = openmc.ZPlane(z0= 171*in2cm/2.0)
     bot = openmc.ZPlane(z0=-171*in2cm/2.0)
 
-    boundary = -top & +bot & +diagonal_cut_upper_left & +diagonal_cut_lower_left & +diagonal_cut_upper_right & +diagonal_cut_lower_right & +straight_cut_left & -straight_cut_right & +straight_cut_front & -straight_cut_back
+    boundary = -top & +bot & +diagonal_cut_left_back & +diagonal_cut_left_front & +diagonal_cut_right_back & +diagonal_cut_right_front & +straight_cut_left & -straight_cut_right & +straight_cut_front & -straight_cut_back
     return boundary
 
   def stringer_sq(self, bore_radius=1.34/2.0):
